@@ -1,0 +1,701 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chef Surender | Executive Culinary Artist & Demi Chef de Partie</title>
+  <meta name="description" content="Official portfolio of Chef Surender (Sonu Rawat) - Demi Chef de Partie with luxury resort and international 5-star experience in the Maldives, JW Marriott Delhi, and India.">
+  
+  <!-- Premium Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800;900&family=Outfit:wght@300;400;500;600;700;800;900&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Playfair+Display:ital,wght@0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="story-mode">
+
+  <!-- Interactive Background Canvas Viewport -->
+  <div class="canvas-viewport" id="canvas-stage">
+    <canvas id="animation-canvas"></canvas>
+    <div class="canvas-vignette"></div>
+    <div class="canvas-radial-spotlight"></div>
+    <div class="canvas-side-shadow"></div>
+  </div>
+
+  <!-- Top Luxury Navigation Header -->
+  <header class="site-header" id="site-header">
+    <div class="header-inner">
+      <a href="#hero" class="brand-logo" aria-label="Chef Surender Home">
+        <div class="brand-badge-ring">
+          <span class="chef-icon">👨‍🍳</span>
+        </div>
+        <div class="brand-text">
+          <span class="brand-name">CHEF SURENDER</span>
+          <span class="brand-tagline">DEMI CHEF DE PARTIE • MALDIVES & INDIA</span>
+        </div>
+      </a>
+
+      <!-- Desktop Nav -->
+      <nav class="nav-links">
+        <a href="#about" class="nav-item"><span>01</span> About</a>
+        <a href="#experience" class="nav-item"><span>02</span> Experience</a>
+        <a href="#specialties" class="nav-item"><span>03</span> Signature Dishes</a>
+        <a href="#skills" class="nav-item"><span>04</span> Mastery</a>
+        <a href="#awards" class="nav-item"><span>05</span> Accolades</a>
+        <a href="#contact" class="nav-item nav-btn">
+          <span>Hire Chef</span>
+          <span class="btn-sparkle">✦</span>
+        </a>
+      </nav>
+
+      <!-- View Controls & Quick Actions -->
+      <div class="header-actions">
+        <button id="toggle-view-btn" class="pill-btn view-toggle" title="Switch between Narrative and Clean 3D Stage">
+          <span class="btn-icon">👁️</span>
+          <span class="btn-label">Cinema 3D</span>
+        </button>
+        <button id="audio-toggle-btn" class="pill-btn audio-toggle" title="Toggle Culinary Ambience Sound">
+          <span class="sound-icon">🔇</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Side Floating Navigation Dots (Table of Contents) -->
+  <aside class="side-nav-hud" id="side-nav" aria-label="Page Sections">
+    <a href="#hero" class="nav-dot active" data-section="hero" title="01. Introduction">
+      <span class="dot-label">Intro</span>
+      <span class="dot-indicator"></span>
+    </a>
+    <a href="#about" class="nav-dot" data-section="about" title="02. Philosophy & Roots">
+      <span class="dot-label">Philosophy</span>
+      <span class="dot-indicator"></span>
+    </a>
+    <a href="#experience" class="nav-dot" data-section="experience" title="03. Career Timeline">
+      <span class="dot-label">Experience</span>
+      <span class="dot-indicator"></span>
+    </a>
+    <a href="#specialties" class="nav-dot" data-section="specialties" title="04. Signature Dishes">
+      <span class="dot-label">Dishes</span>
+      <span class="dot-indicator"></span>
+    </a>
+    <a href="#skills" class="nav-dot" data-section="skills" title="05. Skills & Standards">
+      <span class="dot-label">Skills</span>
+      <span class="dot-indicator"></span>
+    </a>
+    <a href="#awards" class="nav-dot" data-section="awards" title="06. Accolades & Education">
+      <span class="dot-label">Accolades</span>
+      <span class="dot-indicator"></span>
+    </a>
+    <a href="#contact" class="nav-dot" data-section="contact" title="07. Contact & Booking">
+      <span class="dot-label">Contact</span>
+      <span class="dot-indicator"></span>
+    </a>
+  </aside>
+
+  <!-- Interactive Real-time HUD Controller -->
+  <div class="motion-hud" id="motion-hud">
+    <div class="hud-card">
+      <div class="hud-top-row">
+        <div class="hud-live-tag">
+          <span class="hud-pulse-ring"></span>
+          <span class="hud-status" id="hud-status">Executive Introduction</span>
+        </div>
+        <span class="hud-frame-counter" id="hud-frame">Frame 001/150</span>
+      </div>
+      
+      <!-- Interactive Frame Scrubber Bar -->
+      <div class="hud-scrubber-wrapper">
+        <div class="hud-scrubber-track" id="hud-scrubber-track">
+          <div class="hud-scrubber-progress" id="hud-scrubber-bar"></div>
+          <div class="hud-scrubber-handle" id="hud-scrubber-handle"></div>
+        </div>
+      </div>
+      <div class="hud-subtext">Scroll or drag to rotate 3D sequence</div>
+    </div>
+  </div>
+
+  <!-- Main Scrollable Story Track -->
+  <main id="scroll-container" class="content-wrapper">
+
+    <!-- Section 1: Hero Showcase -->
+    <section id="hero" class="story-section hero-section" data-nav="hero">
+      <div class="section-card hero-card" data-tilt>
+        <div class="card-eyebrow">
+          <span class="badge-sparkle">✦</span>
+          <span>International Culinary Portfolio</span>
+        </div>
+        
+        <h1 class="hero-title">
+          CHEF <span class="gold-gradient">SURENDER</span>
+          <span class="hero-role-subtitle">Artisan Demi Chef de Partie & Kitchen Leader</span>
+        </h1>
+        
+        <p class="hero-bio">
+          Driving exceptional culinary standards across international private island resorts in the <strong>Maldives</strong> and prestigious five-star hospitality at <strong>JW Marriott Delhi</strong>. Master of continental cuisine, butchery precision, and zero-waste kitchen management.
+        </p>
+
+        <!-- Dynamic Stat Counter Cards -->
+        <div class="hero-stats-grid">
+          <div class="stat-box">
+            <span class="stat-number">6<small>+</small></span>
+            <span class="stat-label">Years 5-Star Craft</span>
+          </div>
+          <div class="stat-box">
+            <span class="stat-number">5<small>+</small></span>
+            <span class="stat-label">Luxury Hotels & Resorts</span>
+          </div>
+          <div class="stat-box">
+            <span class="stat-number">2<small>x</small></span>
+            <span class="stat-label">Industry Awards</span>
+          </div>
+          <div class="stat-box">
+            <span class="stat-number">150</span>
+            <span class="stat-label">Ultra-Smooth Frames</span>
+          </div>
+        </div>
+
+        <div class="hero-cta-group">
+          <a href="#experience" class="btn-primary">
+            <span>Explore Experience</span>
+            <span class="arrow-icon">→</span>
+          </a>
+          <a href="#contact" class="btn-secondary">
+            <span>Direct Inquiries</span>
+          </a>
+          <a href="https://wa.me/918006635649" target="_blank" rel="noopener" class="btn-whatsapp" title="Chat on WhatsApp">
+            <span class="wa-icon">💬</span>
+            <span>WhatsApp</span>
+          </a>
+        </div>
+
+        <div class="scroll-prompt">
+          <div class="mouse-icon">
+            <div class="mouse-wheel"></div>
+          </div>
+          <span>Scroll down to experience the kitchen in motion</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 2: Culinary Philosophy & Roots -->
+    <section id="about" class="story-section about-section" data-nav="about">
+      <div class="section-card about-card" data-tilt>
+        <div class="card-eyebrow">
+          <span class="badge-sparkle">✦</span>
+          <span>Culinary Roots & Identity</span>
+        </div>
+        
+        <h2 class="section-heading">
+          Mountain Heritage, <br><span class="gold-gradient">Island Gastronomy</span>
+        </h2>
+        
+        <p class="text-lead">
+          Born in Nainital, Uttarakhand, amidst the serene Himalayas, Chef Surender brings a deep respect for organic seasonality, disciplined kitchen hierarchy, and passionate culinary artistry.
+        </p>
+        
+        <p class="text-body">
+          His journey bridges high-volume banquet excellence at JW Marriott Delhi with bespoke oceanfront luxury in the Maldives at Lavista by East Coast and Meat Street. He champions a zero-waste philosophy—elevating food margins through systematic ingredient rotation and creative specials. Outside the kitchen, he shares his culinary passion as creator of the <em>"Naughty Chef"</em> YouTube series.
+        </p>
+
+        <!-- Pillars Grid -->
+        <div class="about-pillars-grid">
+          <div class="pillar-card">
+            <div class="pillar-icon">🌿</div>
+            <h4>Sustainable Cooking</h4>
+            <p>Drastically reducing food waste through precision prep, strict FIFO rotation, and yield optimization.</p>
+          </div>
+          <div class="pillar-card">
+            <div class="pillar-icon">🔪</div>
+            <h4>Butchery & Knife Skills</h4>
+            <p>Classically trained in artisanal butchery, continental meat cuts, portioning, and delicate marinades.</p>
+          </div>
+          <div class="pillar-card">
+            <div class="pillar-icon">🛡️</div>
+            <h4>HACCP & Hygiene</h4>
+            <p>Flawless adherence to international food safety regulations, cross-contamination prevention, and audits.</p>
+          </div>
+          <div class="pillar-card">
+            <div class="pillar-icon">🎬</div>
+            <h4>"Naughty Chef" Series</h4>
+            <p>Engaging digital creator sharing culinary vlogs, technique breakdowns, and hospitality insights.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 3: Career Journey (Interactive Timeline) -->
+    <section id="experience" class="story-section experience-section" data-nav="experience">
+      <div class="section-card wide-card experience-card" data-tilt>
+        <div class="card-eyebrow">
+          <span class="badge-sparkle">✦</span>
+          <span>Professional Trajectory</span>
+        </div>
+        
+        <h2 class="section-heading">
+          International <span class="gold-gradient">Kitchen Experience</span>
+        </h2>
+        
+        <p class="text-lead">
+          Hands-on leadership across world-class luxury resorts, 5-star metropolitan hotels, and high-volume dining.
+        </p>
+
+        <div class="timeline">
+          
+          <!-- Role 1: Lavista Maldives -->
+          <div class="timeline-node current-role">
+            <div class="node-marker">
+              <span class="marker-pulse"></span>
+            </div>
+            <div class="node-content">
+              <div class="node-header">
+                <div>
+                  <h3 class="role-title">Chef & Acting Head Chef</h3>
+                  <span class="company-name">Lavista by East Coast • Hulhumale, Maldives</span>
+                </div>
+                <span class="role-badge active-badge">03/2022 – Present</span>
+              </div>
+              <ul class="role-achievements">
+                <li>Spearheaded kitchen operations, regularly stepping up as <strong>Acting Head Chef</strong> to guarantee flawless service quality and kitchen continuity.</li>
+                <li>Reduced food preparation costs and ingredient losses through systematic rotation of fresh stock and waste-reduction food prep.</li>
+                <li>Enforced world-class hygiene standards, sanitization workflows, and health & safety compliance across the culinary team.</li>
+                <li>Cycled seasonal menus to introduce fresh, contemporary culinary concepts for an international resort clientele.</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Role 2: Meat Street Maldives -->
+          <div class="timeline-node">
+            <div class="node-marker"></div>
+            <div class="node-content">
+              <div class="node-header">
+                <div>
+                  <h3 class="role-title">Commi Chef (Specialty Meats)</h3>
+                  <span class="company-name">Meat Street by Mianz Foods • Hulhumale, Maldives</span>
+                </div>
+                <span class="role-badge">03/2022 – 2024</span>
+              </div>
+              <ul class="role-achievements">
+                <li>Prepped, cooked, and plated premium specialty meats and gourmet culinary creations with tight turnaround times.</li>
+                <li>Cultivated strong, positive relationships with local fresh produce and international meat vendors.</li>
+                <li>Collaborated with head chefs to test and roll out new customer-favorite dishes.</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Role 3: JW Marriott Delhi -->
+          <div class="timeline-node">
+            <div class="node-marker"></div>
+            <div class="node-content">
+              <div class="node-header">
+                <div>
+                  <h3 class="role-title">Demi Chef de Partie</h3>
+                  <span class="company-name">JW Marriott Aerocity • Delhi, India</span>
+                </div>
+                <span class="role-badge">01/2022 – 03/2022</span>
+              </div>
+              <ul class="role-achievements">
+                <li>Supported Chef de Partie in daily high-volume mise-en-place, prep projects, and meticulous inventory tracking.</li>
+                <li>Assisted in developing innovative menu recipes, workshopping items compatible with the 5-star Marriott brand.</li>
+                <li>Planned and directed high-volume food production in a fast-paced luxury banquet environment.</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Role 4: Ananta Spa Pushkar -->
+          <div class="timeline-node">
+            <div class="node-marker"></div>
+            <div class="node-content">
+              <div class="node-header">
+                <div>
+                  <h3 class="role-title">Demi Chef de Partie</h3>
+                  <span class="company-name">Ananta Spa & Resort • Pushkar, Rajasthan</span>
+                </div>
+                <span class="role-badge">08/2021 – 01/2022</span>
+              </div>
+              <ul class="role-achievements">
+                <li>Managed station lines, trained apprentice cooks, and supervised demi-chef de parties.</li>
+                <li>Partnered directly with the Executive Chef and Sous Chef to curate and refine new signature dishes.</li>
+                <li>Maintained impeccable station cleanliness and strict adherence to hotel health standards.</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Role 5: Crescent Spa Indore -->
+          <div class="timeline-node">
+            <div class="node-marker"></div>
+            <div class="node-content">
+              <div class="node-header">
+                <div>
+                  <h3 class="role-title">Demi Chef de Partie</h3>
+                  <span class="company-name">Crescent Spa & Resort • Indore, Madhya Pradesh</span>
+                </div>
+                <span class="role-badge">11/2020 – 06/2021</span>
+              </div>
+              <ul class="role-achievements">
+                <li>Modernized kitchen processes to reduce guest ticket wait times and boost daily service output.</li>
+                <li>Obtained fresh, local ingredients to elevate dish flavors while maintaining strict grocery budget control.</li>
+                <li>Crafted unique daily chef specials that drove repeat dining and restaurant revenue growth.</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Role 6: Ananta Spa Early Career -->
+          <div class="timeline-node">
+            <div class="node-marker"></div>
+            <div class="node-content">
+              <div class="node-header">
+                <div>
+                  <h3 class="role-title">Commi Chef (Continental & Butchery)</h3>
+                  <span class="company-name">Ananta Spa & Resort • Pushkar, Rajasthan</span>
+                </div>
+                <span class="role-badge">03/2018 – 04/2020</span>
+              </div>
+              <ul class="role-achievements">
+                <li>Trained rigorously under senior kitchen staff in the Continental section and butchery operations.</li>
+                <li>Handled complex À-la-carte orders, luxury buffet spreads, and meticulous quality control inspections.</li>
+              </ul>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 4: Signature Culinary Showcase -->
+    <section id="specialties" class="story-section dishes-section" data-nav="specialties">
+      <div class="section-card wide-card dishes-card" data-tilt>
+        <div class="card-eyebrow">
+          <span class="badge-sparkle">✦</span>
+          <span>Culinary Repertoire</span>
+        </div>
+        
+        <h2 class="section-heading">
+          Signature Dishes & <span class="gold-gradient">Techniques</span>
+        </h2>
+        
+        <p class="text-lead">
+          Highlighting specialties developed across high-end continental kitchens and ocean resort dining.
+        </p>
+
+        <div class="dishes-grid">
+          
+          <div class="dish-item">
+            <div class="dish-badge">Continental Specialty</div>
+            <h3>Prime Herb-Crusted Tenderloin</h3>
+            <p>Precision butcher-cut tenderloin seared to medium-rare, accompanied by red wine reduction, roasted root puree, and rosemary glaze.</p>
+            <div class="dish-tags">
+              <span>Butchery</span>
+              <span>Reduction</span>
+              <span>Fine Plating</span>
+            </div>
+          </div>
+
+          <div class="dish-item">
+            <div class="dish-badge">Island Seafood</div>
+            <h3>Maldivian Yellowfin Tuna Tartare</h3>
+            <p>Sustainably line-caught fresh tuna tossed with lime-infused avocado oil, toasted sesame, and crisp shallot tuile.</p>
+            <div class="dish-tags">
+              <span>Raw Bar</span>
+              <span>Zero-Waste</span>
+              <span>Island Fresh</span>
+            </div>
+          </div>
+
+          <div class="dish-item">
+            <div class="dish-badge">Poultry & Roasts</div>
+            <h3>Slow-Braised Chicken Ballotine</h3>
+            <p>Stuffed with wild mushroom duxelles, paired with silky pomme mousseline and poultry jus infused with mountain herbs.</p>
+            <div class="dish-tags">
+              <span>Sous-Vide</span>
+              <span>De-boning</span>
+              <span>Classic French</span>
+            </div>
+          </div>
+
+          <div class="dish-item">
+            <div class="dish-badge">Banquet Excellence</div>
+            <h3>Grand Buffet Carvery & Charcuterie</h3>
+            <p>High-volume artisanal carvery stations, cured meats, house-made marinades, and live-station guest interaction.</p>
+            <div class="dish-tags">
+              <span>High Volume</span>
+              <span>Live Cooking</span>
+              <span>5-Star Service</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 5: Core Skills & Standards -->
+    <section id="skills" class="story-section skills-section" data-nav="skills">
+      <div class="section-card skills-card" data-tilt>
+        <div class="card-eyebrow">
+          <span class="badge-sparkle">✦</span>
+          <span>Operational Capabilities</span>
+        </div>
+        
+        <h2 class="section-heading">
+          Kitchen Leadership & <span class="gold-gradient">Mastery</span>
+        </h2>
+        
+        <p class="text-lead">
+          Combining creative gastronomy with analytical kitchen management and team harmony.
+        </p>
+
+        <div class="skills-cards-grid">
+          
+          <div class="skill-tile">
+            <div class="skill-icon">🥩</div>
+            <h3>Continental & Butchery</h3>
+            <p>Comprehensive expertise in carcass breakdown, portion control, marinades, grilling, and heat management.</p>
+            <div class="skill-pill-list">
+              <span>Knife Skills</span>
+              <span>Yield Optimization</span>
+              <span>Sous-Vide</span>
+            </div>
+          </div>
+
+          <div class="skill-tile">
+            <div class="skill-icon">📋</div>
+            <h3>Menu Planning & Costing</h3>
+            <p>Designing enticing, profitable seasonal menus with balanced gross margins and low food wastage.</p>
+            <div class="skill-pill-list">
+              <span>Recipe Workshopping</span>
+              <span>Food Costing</span>
+              <span>A-la-carte</span>
+            </div>
+          </div>
+
+          <div class="skill-tile">
+            <div class="skill-icon">📉</div>
+            <h3>Waste Mitigation & Stock</h3>
+            <p>Strict FIFO inventory rotation, smart utilization of secondary cuts, and disciplined grocery ordering.</p>
+            <div class="skill-pill-list">
+              <span>FIFO Protocol</span>
+              <span>Loss Minimization</span>
+              <span>Vendor Relations</span>
+            </div>
+          </div>
+
+          <div class="skill-tile">
+            <div class="skill-icon">🧼</div>
+            <h3>HACCP & Hygiene Compliance</h3>
+            <p>Uncompromising commitment to international sanitation, temperature logging, and immaculate station cleanliness.</p>
+            <div class="skill-pill-list">
+              <span>Food Safety</span>
+              <span>Sanitation</span>
+              <span>Kitchen Audits</span>
+            </div>
+          </div>
+
+          <div class="skill-tile">
+            <div class="skill-icon">⏱️</div>
+            <h3>High-Volume Line Efficiency</h3>
+            <p>Flawless coordination during rush hours, reducing ticket times while elevating plating consistency.</p>
+            <div class="skill-pill-list">
+              <span>Mise-en-place</span>
+              <span>Speed of Service</span>
+              <span>Banquets</span>
+            </div>
+          </div>
+
+          <div class="skill-tile">
+            <div class="skill-icon">🤝</div>
+            <h3>Staff Mentorship & Leadership</h3>
+            <p>Fostering positive kitchen morale, mentoring commis chefs, and leading shifts with composure and patience.</p>
+            <div class="skill-pill-list">
+              <span>Team Building</span>
+              <span>Shift Supervision</span>
+              <span>Patience</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 6: Honors, Awards & Education -->
+    <section id="awards" class="story-section awards-section" data-nav="awards">
+      <div class="section-card awards-card" data-tilt>
+        <div class="card-eyebrow">
+          <span class="badge-sparkle">✦</span>
+          <span>Accolades & Education</span>
+        </div>
+        
+        <h2 class="section-heading">
+          Distinctions & <span class="gold-gradient">Credentials</span>
+        </h2>
+
+        <!-- Awards Grid -->
+        <div class="awards-grid">
+          
+          <div class="award-box featured-award">
+            <div class="award-ribbon">Honorary Distinction</div>
+            <div class="award-header">
+              <span class="award-trophy">🏆</span>
+              <div>
+                <h3>"Heart of the Hotel" Award</h3>
+                <span class="award-org">Luxury Resort Hospitality Recognition</span>
+              </div>
+            </div>
+            <p>Conferred for outstanding dedication to guest satisfaction, exemplary work ethic, and consistently lifting kitchen morale during high-intensity seasons.</p>
+          </div>
+
+          <div class="award-box featured-award">
+            <div class="award-ribbon">Performance Award</div>
+            <div class="award-header">
+              <span class="award-trophy">⭐</span>
+              <div>
+                <h3>"BRAVO" Excellence Award</h3>
+                <span class="award-org">Five-Star Culinary Excellence</span>
+              </div>
+            </div>
+            <p>Awarded in recognition of exceptional operational excellence, zero-defect kitchen line execution, and leadership by example.</p>
+          </div>
+
+        </div>
+
+        <!-- Education Credentials -->
+        <div class="credentials-container">
+          <div class="credential-item">
+            <div class="cred-icon">🎓</div>
+            <div class="cred-text">
+              <span class="cred-dates">2015 – 2018</span>
+              <h3>Diploma in Hotel Management</h3>
+              <p class="cred-school">FCI Institute of Management • Dehradun, Uttarakhand</p>
+              <p class="cred-desc">Three-year comprehensive professional education in food production, continental culinary arts, hospitality management, and kitchen sanitation.</p>
+            </div>
+          </div>
+
+          <div class="credential-item">
+            <div class="cred-icon">🏫</div>
+            <div class="cred-text">
+              <span class="cred-dates">Foundational Education</span>
+              <h3>Senior Secondary & Secondary Schooling</h3>
+              <p class="cred-school">Janta Sr. Sec. School & Kinder Kin Sr. Sec. School • Panipat City, India</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Section 7: Contact & Global Inquiries -->
+    <section id="contact" class="story-section contact-section" data-nav="contact">
+      <div class="section-card contact-card" data-tilt>
+        <div class="card-eyebrow">
+          <span class="badge-sparkle">✦</span>
+          <span>Get in Touch</span>
+        </div>
+        
+        <h2 class="section-heading">
+          Let’s Discuss Your Next <br><span class="gold-gradient">Culinary Venture</span>
+        </h2>
+        
+        <p class="text-lead">
+          Chef Surender is open to Executive Chef roles, Demi Chef de Partie positions in luxury resorts worldwide, kitchen consulting, and private culinary engagements.
+        </p>
+
+        <div class="contact-layout">
+          
+          <!-- Contact Direct Channels -->
+          <div class="direct-channels">
+            
+            <a href="tel:+918006635649" class="channel-card">
+              <div class="channel-icon">📞</div>
+              <div class="channel-info">
+                <span class="channel-label">India Direct Contact</span>
+                <span class="channel-val">+91 8006635649</span>
+              </div>
+            </a>
+
+            <a href="tel:+9609929406" class="channel-card">
+              <div class="channel-icon">🌴</div>
+              <div class="channel-info">
+                <span class="channel-label">Maldives Direct Contact</span>
+                <span class="channel-val">+960 9929406</span>
+              </div>
+            </a>
+
+            <a href="mailto:sonu.rawat.80066@gmail.com" class="channel-card">
+              <div class="channel-icon">✉️</div>
+              <div class="channel-info">
+                <span class="channel-label">Official Email</span>
+                <span class="channel-val">sonu.rawat.80066@gmail.com</span>
+              </div>
+            </a>
+
+            <a href="https://wa.me/918006635649" target="_blank" rel="noopener" class="channel-card wa-channel">
+              <div class="channel-icon">💬</div>
+              <div class="channel-info">
+                <span class="channel-label">Instant WhatsApp Chat</span>
+                <span class="channel-val">Connect on WhatsApp (+91 8006635649)</span>
+              </div>
+            </a>
+
+            <div class="channel-card location-channel">
+              <div class="channel-icon">📍</div>
+              <div class="channel-info">
+                <span class="channel-label">Hometown & Global Mobility</span>
+                <span class="channel-val">Nainital, Uttarakhand, India • Valid Passport • Ready to Relocate Globally</span>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Direct Inquiry Form -->
+          <div class="inquiry-form-wrapper">
+            <form id="contact-form" class="luxury-form" onsubmit="event.preventDefault(); alert('Thank you! Your inquiry has been recorded. Chef Surender will get back to you shortly.');">
+              <div class="form-title">Send a Direct Message</div>
+              
+              <div class="form-row">
+                <div class="input-group">
+                  <label for="f-name">Your Name / Organization</label>
+                  <input type="text" id="f-name" placeholder="Hotel, Resort or Recruiter" required>
+                </div>
+                <div class="input-group">
+                  <label for="f-email">Email Address</label>
+                  <input type="email" id="f-email" placeholder="contact@hospitality.com" required>
+                </div>
+              </div>
+
+              <div class="input-group">
+                <label for="f-type">Opportunity Type</label>
+                <select id="f-type">
+                  <option value="Executive Chef">Executive Chef / Head Chef Opportunity</option>
+                  <option value="Demi Chef de Partie">Demi Chef de Partie (Resort / 5-Star)</option>
+                  <option value="Menu Consulting">Menu & Kitchen Consulting</option>
+                  <option value="Private Event">VIP Private Dining</option>
+                  <option value="Other">General Inquiry</option>
+                </select>
+              </div>
+
+              <div class="input-group">
+                <label for="f-msg">Opportunity Details</label>
+                <textarea id="f-msg" rows="4" placeholder="Share details about the property, role, location, or project..."></textarea>
+              </div>
+
+              <button type="submit" class="btn-primary submit-btn">
+                <span>Submit Inquiry</span>
+                <span class="arrow-icon">✉️</span>
+              </button>
+            </form>
+          </div>
+
+        </div>
+
+        <footer class="footer-bar">
+          <p>© 2026 Chef Surender (Sonu Rawat). All Rights Reserved. Crafted with culinary precision and modern web aesthetics.</p>
+        </footer>
+
+      </div>
+    </section>
+
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

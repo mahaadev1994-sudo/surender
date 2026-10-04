@@ -1,0 +1,10 @@
+{
+  "name": "smooth-scroll-animation",
+  "version": "1.0.0",
+  "description": "Smooth scroll animation with frame sequence",
+  "main": "server.js",
+  "scripts": {
+    "dev": "node server.js",
+    "start": "node server.js"
+  }
+}
